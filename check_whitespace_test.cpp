@@ -7,19 +7,27 @@ TEST(strip, EmptyString) {
 }
 
 TEST(strip, NoWhitespace) {
-    ASSERT_STREQ("frog", strip("frog"));
+    char const *result = strip("frog");
+    ASSERT_STREQ("frog", result);
+    free((void*)result);
 }
 
 TEST(strip, WhitespaceOnFront) {
-    ASSERT_STREQ("frog", strip("   frog"));
+    char const *result = strip("   frog");
+    ASSERT_STREQ("frog", result);
+    free((void*)result);
 }
 
 TEST(strip, WhitespaceOnBack) {
-    ASSERT_STREQ("frog", strip("frog  "));
+    char const *result = strip("frog  ");
+    ASSERT_STREQ("frog", result);
+    free((void*)result);
 }
 
 TEST(strip, WhitespaceOnBothEnds) {
-    ASSERT_STREQ("frog", strip("  frog     "));
+    char const *result = strip("  frog     ");
+    ASSERT_STREQ("frog", result);
+    free((void*)result);
 }
 
 TEST(is_clean, EmptyString) {
