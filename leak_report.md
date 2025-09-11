@@ -1,6 +1,5 @@
 # Leak report
 
-_Use this document to describe whatever memory leaks
-you find in `clean_whitespace.c` and how you might fix
-them. You should also probably remove this explanatory
-text._
+
+`result` for `*strip()` in line 36 is never freed, but is passed to `cleaned` where it is also never freed
+solution: free `cleaned` after it is used in defining `result` for `is_clean()`
